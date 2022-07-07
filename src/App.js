@@ -16,7 +16,9 @@ function App() {
             <Sidebar />
           </Col>
           <Col span={12} offset={1} flex>
-            <Container />
+            <Row gutter={[16, 16]} align="middle" justify="center">
+              <Container />
+            </Row>
           </Col>
         </Row>
         <Footer />

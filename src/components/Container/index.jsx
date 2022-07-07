@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { GET_CHARS } from './queries';
-import { Col, Row, Card, Pagination } from 'antd';
+import { Col, Row, Card, Pagination, Spin } from 'antd';
 
 import { FilterContext, useFilter } from '../../Context/main';
 
@@ -17,7 +17,7 @@ function Container() {
   });
 
   if (loading || !data) {
-    return <div>Loading...</div>;
+    return <Spin delay={400} tip="Loading..." size="large" />;
   }
 
   const onChangePage = (page) => {
@@ -25,7 +25,7 @@ function Container() {
   };
 
   return (
-    <Row gutter={[16, 16]} align="middle" justify="center">
+    <>
       {data.characters.results.map((character) => (
         <Col sm={24} md={12} xl={8} xxl={6} key={character.id}>
           <Card size="small" style={{ width: 170, height: 300 }} bordered={false} cover={<img alt="example" src={character.image} />}>
@@ -40,7 +40,7 @@ function Container() {
           <Pagination showSizeChanger={false} defaultCurrent={1} current={page} onChange={onChangePage} total={data.characters.info.count} />
         </Row>
       </Col>
-    </Row>
+    </>
   );
 }
 
