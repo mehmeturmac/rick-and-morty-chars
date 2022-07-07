@@ -37,7 +37,7 @@ function Container() {
       ))}
       <Col span={24}>
         <Row justify="center">
-          <Pagination showSizeChanger={false} defaultCurrent={1} current={page} onChange={onChangePage} total={data.characters.info.count} />
+          <Pagination showSizeChanger={false} defaultCurrent={1} current={page} onChange={onChangePage} total={data.characters.info.count / 2} />
         </Row>
       </Col>
     </>

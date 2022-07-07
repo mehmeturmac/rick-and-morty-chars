@@ -7,11 +7,13 @@ function Sidebar() {
   const { setPage, gender, setGender, species, setSpecies, filtered, setFiltered, setName, setSearch } = useFilter(FilterContext);
 
   const onChangeGender = (e) => {
+    setPage(1);
     setGender(e.target.value);
     setFiltered(false);
   };
 
   const onChangeSpecies = (e) => {
+    setPage(1);
     setSpecies(e.target.value);
     setFiltered(false);
   };
